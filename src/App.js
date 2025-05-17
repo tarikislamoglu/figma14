@@ -17,17 +17,21 @@ const App = () => {
           <div className="bg-white rounded-full w-[64px] h-[64px] z-1 absolute bottom-0 right-0"></div>
         </div>
         <nav className=" text-white  sm:w-1/2 font-bold ">
-          <div className="sm:flex justify-around hidden">
-            <a href="#">Home</a>
-
-            <a href="#">About</a>
-
-            <a href="#">Contact Us</a>
-
-            <a href="#">Team</a>
-          </div>
+          <ul className="sm:flex justify-around hidden">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Contact Us</a>
+            </li>
+            <li>
+              <a href="#">Team</a>
+            </li>
+          </ul>
           <div className="flex justify-end sm:hidden">
-            {" "}
             <GiHamburgerMenu className="text-4xl" />
           </div>
         </nav>
