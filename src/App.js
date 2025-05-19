@@ -37,7 +37,7 @@ const App = () => {
         </nav>
       </header>
       <main className="flex flex-col items-center space-y-30">
-        <section className=" w-full h-full  flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 px-10 pt-30 ">
+        <section className=" w-full h-full  flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 px-10 pt-30 md:space-x-5 space-x-0">
           <div className="w-full md:w-1/2 space-y-5">
             <div className="w-full flex flex-col space-y-5  ">
               <h2 className="font-bold text-[70px] md:text-[90px] ">
@@ -219,7 +219,7 @@ const App = () => {
         <div className="flex flex-col md:flex-row items-center md:justify-between w-full md:space-y-0 space-y-2">
           <p>Türkiye</p>
           <p>© 2024, All Rights By Figma Design.</p>
-          <div className="flex space-x-2">
+          <div className="flex space-x-2 text-[#3B5999]">
             <a href="">Guides</a>
             <a href="">Terms of Use</a>
             <a href="">Privacy Policy</a>
