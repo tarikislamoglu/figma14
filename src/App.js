@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
   FaSquareInstagram,
@@ -6,38 +6,65 @@ import {
   FaSquareTwitter,
 } from "react-icons/fa6";
 import { FaYoutubeSquare } from "react-icons/fa";
+
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative min-h-screen w-full  bg-[#FFDD55] ">
-      <header className="absolute top-0  w-full bg-black flex justify-between items-center py-3 px-5 rounded-b-2xl">
-        <div className="w-[68px] h-[68px] relative bg-black">
-          <div className="bg-[#FFDD55] rounded-full w-[64px] h-[64px] z-2 absolute top-0 left-0 border-2 border-black flex justify-center items-center">
-            <p className="font-extrabold text-[40px]">A</p>
+      <header className="absolute top-0 w-full bg-black rounded-b-2xl flex flex-col">
+        <div className=" w-full flex justify-between items-center py-3 px-5 ">
+          <div className="w-[68px] h-[68px] relative bg-black">
+            <div className="bg-[#FFDD55] rounded-full w-[64px] h-[64px] z-2 absolute top-0 left-0 border-2 border-black flex justify-center items-center">
+              <p className="font-extrabold text-[40px]">A</p>
+            </div>
+            <div className="bg-white rounded-full w-[64px] h-[64px] z-1 absolute bottom-0 right-0"></div>
           </div>
-          <div className="bg-white rounded-full w-[64px] h-[64px] z-1 absolute bottom-0 right-0"></div>
+          <nav className=" text-white  sm:w-1/2 font-bold ">
+            <ul className="sm:flex justify-around hidden">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+              <li>
+                <a href="#">Team</a>
+              </li>
+            </ul>
+            <div className="flex justify-end sm:hidden">
+              <GiHamburgerMenu
+                className="text-4xl cursor-pointer"
+                onClick={() => setIsOpen((prev) => !prev)}
+              />
+            </div>
+          </nav>
         </div>
-        <nav className=" text-white  sm:w-1/2 font-bold ">
-          <ul className="sm:flex justify-around hidden">
-            <li>
+        {isOpen && (
+          <ul className="flex flex-col w-full items-center  text-white space-y-5 pb-4">
+            <li className="border-b-1 border-white">
               <a href="#">Home</a>
             </li>
-            <li>
+            <li className="border-b-1 border-white">
               <a href="#">About</a>
             </li>
-            <li>
+            <li className="border-b-1 border-white">
               <a href="#">Contact Us</a>
             </li>
-            <li>
+            <li className="border-b-1 border-white">
               <a href="#">Team</a>
             </li>
           </ul>
-          <div className="flex justify-end sm:hidden">
-            <GiHamburgerMenu className="text-4xl" />
-          </div>
-        </nav>
+        )}
       </header>
-      <main className="flex flex-col items-center space-y-30">
-        <section className=" w-full h-full  flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 px-10 pt-30 md:space-x-5 space-x-0">
+      <main className="flex flex-col items-center space-y-25">
+        <section
+          className={`w-full flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 pl-10  md:space-x-5 space-x-0 ${
+            isOpen ? "pt-75" : "pt-30"
+          }`}
+        >
           <div className="w-full md:w-1/2 space-y-5">
             <div className="w-full flex flex-col space-y-5  ">
               <h2 className="font-bold text-[70px] md:text-[90px] ">
@@ -61,7 +88,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex md:space-x-3 ">
+          <div className="w-full md:w-1/2 sm:flex md:space-x-3 hidden ">
             <img src="/avatar.png" className="w-4/5 h-auto max-h-[500px]" />
             <div className="flex flex-col w-1/5 justify-end space-y-2">
               <a
@@ -92,8 +119,8 @@ const App = () => {
           </div>
         </section>
 
-        <section className="p-10  h-auto bg-[#106EE8] flex text-white rounded-lg space-x-5 mx-10 ">
-          <img src="/avatar.png" className="w-1/3" />
+        <section className="p-8  bg-[#106EE8] flex text-white rounded-lg space-x-5 mx-10 ">
+          <img src="/avatar.png" className="w-1/3 h-auto" />
           <div className="w-2/3 space-y-3 flex flex-col justify-center items-start">
             <h3 className="font-bold text-3xl">About Me</h3>
             <div>
@@ -122,17 +149,22 @@ const App = () => {
           </div>
         </section>
 
-        <section className="w-full h-auto bg-[#EB7711] flex flex-col text-white  items-center p-15 space-y-8">
-          <h3 className="font-bold text-3xl text-black">Services</h3>
-          <p className="text-center">
+        <section
+          className="w-full h-auto bg-[#EB7711] flex flex-col text-white  items-center p-15 space-y-8"
+          aria-labelledby="services"
+        >
+          <h3 id="services" className="font-bold text-3xl text-black">
+            Services
+          </h3>
+          <article className="text-center">
             Embark on a journey of digital transformation with services that
             blend design brilliance with cutting-edge development. Let's create
             experiences that resonate and applications that captivate.
-          </p>
-          <div className="flex h-1/2 w-full space-x-5">
+          </article>
+          <article className="flex h-1/2 w-full space-x-5">
             <div>
               <div className=" bg-[#A259FF] rounded-lg border-2 border-black p-5 space-y-3 relative h-full flex flex-col justify-between ">
-                <div className="rounded-full w-[50px] h-[50px] bg-[#0ACF83] flex justify-center items-center absolute top-[-25px] left-[50%] ">
+                <div className="rounded-full w-[50px] h-[50px] bg-[#0ACF83] flex justify-center items-center absolute top-[-25px] left-1/2 transform -translate-x-1/2 ">
                   <p className="font-bold text-[40px] ">1</p>
                 </div>
                 <h4 className="font-bold">UI/UX Designer</h4>
@@ -147,8 +179,8 @@ const App = () => {
               </div>
             </div>
             <div>
-              <div className=" bg-[#A259FF] rounded-lg border-2 border-black p-5 space-y-3 relative h-full">
-                <div className="rounded-full w-[50px] h-[50px] bg-[#0ACF83] flex justify-center items-center absolute top-[-25px] left-[50%]">
+              <div className=" bg-[#A259FF] rounded-lg border-2 border-black p-5 space-y-3 relative h-full flex flex-col justify-between">
+                <div className="rounded-full w-[50px] h-[50px] bg-[#0ACF83] flex justify-center items-center absolute top-[-25px] left-1/2 transform -translate-x-1/2">
                   <p className="font-bold text-[40px] ">2</p>
                 </div>
                 <h4 className="font-bold">React Developer</h4>
@@ -162,7 +194,7 @@ const App = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </article>
         </section>
 
         <section className="flex flex-col items-center justify-center w-full min-h-[250px] bg-[#0ACF83]  space-y-5">
