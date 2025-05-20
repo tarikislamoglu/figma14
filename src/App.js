@@ -119,7 +119,7 @@ const App = () => {
           </div>
         </section>
 
-        <section className="p-8  bg-[#106EE8] flex text-white rounded-lg space-x-5 mx-10 ">
+        <section className="p-8  bg-[#106EE8] flex text-white md:rounded-lg space-x-5 md:mx-10 ">
           <img src="/avatar.png" className="w-1/3 h-auto" />
           <div className="w-2/3 space-y-3 flex flex-col justify-center items-start">
             <h3 className="font-bold text-3xl">About Me</h3>
